@@ -1,6 +1,7 @@
 <button mat-raised-button color="primary" routerLink="/product/add">
   Add Product
 </button>
+@defer (when products()) {
 <div class="flex-grid">
   @for (product of products(); track product.id) {
   <div class="flex-grid-container">
@@ -9,3 +10,10 @@
   <mat-divider></mat-divider>
   }
 </div>
+} @loading() {
+<div class="spinner-container"><mat-spinner></mat-spinner></div>
+} @placeholder() {
+<div class="spinner-container"><mat-spinner></mat-spinner></div>
+} @error {
+<div>Error with loading data</div>
+}

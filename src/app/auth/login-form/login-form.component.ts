@@ -43,14 +43,14 @@ export class LoginFormComponent implements OnInit {
   private readonly authService: AuthService = inject(AuthService);
   private readonly router: Router = inject(Router);
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const userInfo: UserLogin = { ...(this.loginForm.value as UserLogin) };
     this.authService
       .login(userInfo)

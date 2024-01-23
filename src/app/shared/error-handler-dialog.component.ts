@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'error-handler-dialog',
+  selector: 'app-error-handler-dialog',
   styleUrl: './error-handler-dialog.component.scss',
   templateUrl: './error-handler-dialog.component.html',
   standalone: true,

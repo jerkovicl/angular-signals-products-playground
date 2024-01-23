@@ -64,6 +64,12 @@ export class ProductFormComponent implements OnInit {
     inject(NotificationService);
   id: InputSignal<number, string> = input.required<number, string>({
     transform: numberAttribute,
+    // this can be a simple function as well
+    /*
+    transform(value: string): number {
+      return Number.isNaN(value) ? 0 : Number(value);
+    },
+    */
   });
 
   product: Signal<Product | undefined> = toSignal(
@@ -80,7 +86,14 @@ export class ProductFormComponent implements OnInit {
               })
             );
       })
-    )
+    ),
+    {
+      initialValue: undefined,
+      // if a source observable is guaranteed to emit its first value at the moment of subscription, the requireSync property can be set to true
+      // requireSync: true,
+      // propagate an error from its related observable to the signal
+      // rejectErrors: false,
+    }
   );
   categories: Signal<string[] | undefined> = toSignal(
     this.productsService.getCategories()

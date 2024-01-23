@@ -23,6 +23,13 @@
   min-width: 25%;
 }
 
+.spinner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 /* large tablet */
 @media (max-width: 840px) {
   .flex-grid .flex-grid-container {
