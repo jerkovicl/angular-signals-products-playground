@@ -1,0 +1,48 @@
+<a
+  matRipple
+  [routerLink]="['/product/' + product().id + '/edit']"
+  class="flat-card"
+>
+  <div class="flat-card-content">
+    <div>
+      <img
+        ngClass.xs="mat-card-md-image"
+        ngClass.gt-xs="mat-card-image"
+        priority
+        fill
+        [ngSrc]="product().thumbnail"
+        [alt]="product().title"
+      />
+    </div>
+
+    <div class="flat-card-block">
+      <span class="flat-card-block-title" mat-card-title>{{
+        product().title
+      }}</span>
+
+      <section mat-card-block class="price">
+        <strong>{{ product().price }} €</strong>
+        <br />
+        <small matLine>
+          <div class="rating">
+            <span class="rating-info">{{ product().rating }}</span>
+            <mat-icon fontIcon="star" color="primary"></mat-icon>
+          </div>
+        </small>
+        <small
+          ><div class="category">
+            <strong>Category:</strong
+            ><mat-chip highlighted [color]="'primary'">{{
+              product().category
+            }}</mat-chip>
+          </div>
+        </small>
+      </section>
+
+      <div mat-card-block class="description">
+        <mat-divider></mat-divider>
+        <p class="description-text">{{ product().description }}</p>
+      </div>
+    </div>
+  </div>
+</a>

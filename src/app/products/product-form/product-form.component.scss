@@ -1,0 +1,24 @@
+.product-form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.product-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  .btn-block {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .field-full-width {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .mat-mdc-form-field-error {
+    margin-top: 4px;
+  }
+}

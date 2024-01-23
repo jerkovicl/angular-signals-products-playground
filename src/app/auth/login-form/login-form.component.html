@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+    <form
+      class="login-form"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+    >
+      <mat-card-content>
+        <mat-form-field class="login-full-width">
+          <input matInput placeholder="Username" formControlName="username" />
+          @if (loginForm.get('username')?.hasError('required')) {
+          <mat-error> Please enter a <strong>username</strong> </mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="login-full-width">
+          <input
+            matInput
+            autocomplete="new-password"
+            spellcheck="false"
+            placeholder="Password"
+            formControlName="password"
+          />
+          @if (loginForm.get('password')?.hasError('required')) {
+          <mat-error> Please enter a <strong>password</strong> </mat-error>
+          }
+        </mat-form-field>
+      </mat-card-content>
+      <button
+        mat-stroked-button
+        color="primary"
+        class="btn-block"
+        [disabled]="!loginForm.valid"
+      >
+        Log in
+      </button>
+    </form>
+  </mat-card>
+</div>

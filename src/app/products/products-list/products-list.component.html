@@ -1,0 +1,11 @@
+<button mat-raised-button color="primary" routerLink="/product/add">
+  Add Product
+</button>
+<div class="flex-grid">
+  @for (product of products(); track product.id) {
+  <div class="flex-grid-container">
+    <app-product-item [product]="product"></app-product-item>
+  </div>
+  <mat-divider></mat-divider>
+  }
+</div>

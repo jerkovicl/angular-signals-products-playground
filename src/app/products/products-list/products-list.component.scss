@@ -1,0 +1,37 @@
+.flex-grid {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-flow: wrap;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.flex-grid .flex-grid-container {
+  padding: 24px;
+  transition: ease-in-out all 180ms;
+  flex: 0 0 25%;
+  box-sizing: border-box;
+  flex-direction: row;
+  display: flex;
+  max-width: 25%;
+  min-width: 25%;
+}
+
+/* large tablet */
+@media (max-width: 840px) {
+  .flex-grid .flex-grid-container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flex-grid .flex-grid-container {
+    padding: 0;
+  }
+}
