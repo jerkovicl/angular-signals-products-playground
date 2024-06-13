@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Product } from './product.model';
+import { Product, type Category } from './product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -36,9 +36,9 @@ export class ProductsService {
     ) as Observable<Product>;
   }
 
-  getCategories(): Observable<string[]> {
+  getCategories(): Observable<Category[]> {
     return this.httpClient.get(`${this.baseUrl}/categories`) as Observable<
-      string[]
+      Category[]
     >;
   }
 }

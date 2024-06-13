@@ -32,7 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { Observable, of, switchMap, tap } from 'rxjs';
 import { NotificationService } from '../../shared/notifications.service';
-import { Product, ProductForm } from '../product.model';
+import { Product, ProductForm, type Category } from '../product.model';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -95,7 +95,7 @@ export class ProductFormComponent implements OnInit {
       // rejectErrors: false,
     }
   );
-  categories: Signal<string[] | undefined> = toSignal(
+  categories: Signal<Category[] | undefined> = toSignal(
     this.productsService.getCategories()
   );
 

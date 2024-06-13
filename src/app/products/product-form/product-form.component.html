@@ -60,8 +60,8 @@
           <mat-label>Category</mat-label>
           <mat-select class="country-select" formControlName="category">
             @for (category of categories(); track category) {
-            <mat-option [value]="category">
-              <span>{{ category }}</span>
+            <mat-option [value]="category.name">
+              <span>{{ category.name }}</span>
             </mat-option>
             }
           </mat-select>
