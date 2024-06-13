@@ -67,15 +67,19 @@
       },
       {
         "file": "angular.json",
-        "hash": "5720863314037197636"
+        "hash": "8953969219386768188"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "1260625332651865062"
       },
       {
         "file": "package-lock.json",
-        "hash": "2479866452425108607"
+        "hash": "1711799816529688952"
       },
       {
         "file": "package.json",
-        "hash": "13852175837194019276"
+        "hash": "4937948658851301956"
       },
       {
         "file": "src/app/app.component.html",
@@ -87,7 +91,7 @@
       },
       {
         "file": "src/app/app.component.spec.ts",
-        "hash": "6138494366306507775"
+        "hash": "12254247585280204341"
       },
       {
         "file": "src/app/app.component.ts",
@@ -127,7 +131,7 @@
       },
       {
         "file": "src/app/auth/login-form/login-form.component.ts",
-        "hash": "10389736627665055241"
+        "hash": "17942920788690522622"
       },
       {
         "file": "src/app/products/product-form/product-form.component.html",
@@ -139,7 +143,7 @@
       },
       {
         "file": "src/app/products/product-form/product-form.component.ts",
-        "hash": "2604507985442955088"
+        "hash": "11167901969564005178"
       },
       {
         "file": "src/app/products/product-item/product-item.component.html",
@@ -159,15 +163,15 @@
       },
       {
         "file": "src/app/products/products-list/products-list.component.html",
-        "hash": "2921343737492728005"
+        "hash": "14480804073663918657"
       },
       {
         "file": "src/app/products/products-list/products-list.component.scss",
-        "hash": "10300672039827825811"
+        "hash": "16034285263054784487"
       },
       {
         "file": "src/app/products/products-list/products-list.component.ts",
-        "hash": "2905957792159255223"
+        "hash": "9093341766333065390"
       },
       {
         "file": "src/app/products/products.service.ts",
@@ -183,7 +187,7 @@
       },
       {
         "file": "src/app/shared/error-handler-dialog.component.ts",
-        "hash": "13240548742815692499"
+        "hash": "3505086669563916369"
       },
       {
         "file": "src/app/shared/error-handler.service.ts",
@@ -227,7 +231,7 @@
       },
       {
         "file": "tsconfig.spec.json",
-        "hash": "5122839733245053999"
+        "hash": "17140652288046172613"
       }
     ]
   }

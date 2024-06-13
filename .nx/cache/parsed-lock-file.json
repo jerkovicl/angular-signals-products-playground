@@ -7101,15 +7101,6 @@
         "hash": "sha512-ZDi3aP+fG/LchyBzUM804VjddnwfSfsdeYkwt8NcbKRvo4rFkjhs456iLFn3k2ZUWvNe4i48WACDbza8fhq2+w=="
       }
     },
-    "npm:jasmine-core": {
-      "type": "npm",
-      "name": "npm:jasmine-core",
-      "data": {
-        "version": "5.1.1",
-        "packageName": "jasmine-core",
-        "hash": "sha512-UrzO3fL7nnxlQXlvTynNAenL+21oUQRlzqQFsA2U11ryb4+NLOCOePZ70PTojEaUKhiFugh7dG0Q+I58xlPdWg=="
-      }
-    },
     "npm:jest": {
       "type": "npm",
       "name": "npm:jest",
