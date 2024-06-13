@@ -62,7 +62,7 @@ export class ProductFormComponent implements OnInit {
   private readonly router: Router = inject(Router);
   private readonly notificationService: NotificationService =
     inject(NotificationService);
-  id: InputSignal<number, string> = input.required<number, string>({
+  id: InputSignal<number> = input.required<number, number>({
     transform: numberAttribute,
     // this can be a simple function as well
     /*

@@ -30,5 +30,5 @@ import { Product } from '../product.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductItemComponent {
-  product: InputSignal<Product, Product> = input.required<Product>();
+  product: InputSignal<Product> = input.required<Product>();
 }
