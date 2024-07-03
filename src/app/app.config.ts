@@ -3,8 +3,12 @@ import {
   ApplicationConfig,
   ErrorHandler,
   makeEnvironmentProviders,
-  provideZoneChangeDetection,
+  provideExperimentalZonelessChangeDetection,
 } from '@angular/core';
+import {
+  provideClientHydration,
+  withEventReplay,
+} from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
   provideRouter,
@@ -28,7 +32,8 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({ paramsInheritanceStrategy: 'always' })
     ),
     provideAnimationsAsync(),
-    provideZoneChangeDetection({ eventCoalescing: true, runCoalescing: true }),
+    provideExperimentalZonelessChangeDetection(),
+    // provideZoneChangeDetection({ eventCoalescing: true, runCoalescing: true }),
     makeEnvironmentProviders([
       {
         provide: ErrorHandler,
@@ -36,5 +41,6 @@ export const appConfig: ApplicationConfig = {
       },
     ]),
     provideHttpClient(withInterceptors([AuthInterceptor, ErrorInterceptor])),
+    provideClientHydration(withEventReplay()),
   ],
 };

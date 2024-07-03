@@ -48,6 +48,16 @@ export class LoginFormComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
+    /*
+    FormControl, FormGroup and FormArray classes from Angular forms now expose a property called events, which allows you to subscribe to a stream of events for this form control.
+    Using it you can track changes in value, touch state, pristine status, and the control status.
+    */
+    this.loginForm.events
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((event) => {
+        // process the individual events
+        console.log(event);
+      });
   }
 
   onSubmit(): void {
