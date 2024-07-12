@@ -12,6 +12,8 @@ export interface Product {
   category: string;
   thumbnail: string;
   images: string[];
+  tags: string[];
+  sku?: string;
 }
 
 export interface Category {
@@ -32,4 +34,6 @@ export interface ProductForm {
   category: FormControl<string>;
   thumbnail: FormControl<string>;
   images: FormControl<string[]>;
+  tags: FormControl<string[]>;
+  sku?: FormControl<string>;
 }

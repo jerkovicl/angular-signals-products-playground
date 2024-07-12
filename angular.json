@@ -40,10 +40,10 @@
             "inlineStyleLanguage": "scss",
             "outputPath": "dist/products-demo/browser",
             "prerender": true,
+            "server": "src/main.server.ts",
             "ssr": {
               "entry": "server.ts"
             },
-            // "polyfills": ["zone.js"],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
@@ -76,31 +76,10 @@
           },
           "defaultConfiguration": "development"
         },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "configurations": {
-            "development": {
-              "extractLicenses": false,
-              "optimization": false,
-              "sourceMap": true
-            },
-            "production": {
-              "outputHashing": "media"
-            }
-          },
-          "defaultConfiguration": "production",
-          "options": {
-            "inlineStyleLanguage": "scss",
-            "main": "src/main.server.ts",
-            "outputPath": "dist/products-demo/server",
-            "tsConfig": "tsconfig.server.json"
-          }
-        },
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
             "configPath": "./jest.config.ts",
-            // "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "scripts": []
           }

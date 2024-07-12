@@ -1,4 +1,4 @@
-import { inject, Injectable, NgZone } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ErrorHandlerDialogComponent } from './error-handler-dialog.component';
@@ -9,24 +9,24 @@ import { ErrorHandlerDialogComponent } from './error-handler-dialog.component';
 export class NotificationService {
   private readonly snackbar: MatSnackBar = inject(MatSnackBar);
   private readonly dialog: MatDialog = inject(MatDialog);
-  private readonly zone: NgZone = inject(NgZone);
+  // private readonly zone: NgZone = inject(NgZone);
 
   showClientError(message: string): void {
-    this.zone.run(() => {
-      this.snackbar.open(`Error: ${message}`, 'Ok', {
-        panelClass: ['error-snack'],
-        horizontalPosition: 'end',
-        verticalPosition: 'bottom',
-      });
+    // this.zone.run(() => {
+    this.snackbar.open(`Error: ${message}`, 'Ok', {
+      panelClass: ['error-snack'],
+      horizontalPosition: 'end',
+      verticalPosition: 'bottom',
     });
+    // });
   }
 
   openServerErrorDialog(message: string) {
-    this.zone.run(() => {
-      this.dialog.open(ErrorHandlerDialogComponent, {
-        data: { message },
-      });
+    // this.zone.run(() => {
+    this.dialog.open(ErrorHandlerDialogComponent, {
+      data: { message },
     });
+    // });
   }
 
   showInfo(message: string, duration = 6000) {

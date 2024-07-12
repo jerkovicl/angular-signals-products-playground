@@ -80,8 +80,9 @@ export class ProductFormComponent implements OnInit {
           : this.productsService.get(id).pipe(
               tap((res: Product) => {
                 if (res) {
-                  this.productForm.setValue(res);
+                  // res = { ...res, rating: Math.round(res.rating) };
                   // console.log('product', res, this.productForm);
+                  this.productForm.patchValue(res);
                 }
               })
             );
@@ -106,14 +107,17 @@ export class ProductFormComponent implements OnInit {
       description: ['', Validators.required],
       price: [
         0,
-        Validators.compose([Validators.required, Validators.pattern('[0-9]*')]),
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^-?\d*[.,]?\d{0,2}$/),
+        ]),
       ],
       discountPercentage: [0],
       rating: [
         0,
         Validators.compose([
           Validators.required,
-          Validators.pattern('[0-9]*'),
+          Validators.pattern(/^-?\d*[.,]?\d{0,2}$/),
           Validators.min(1),
           Validators.max(10),
         ]),
@@ -123,6 +127,7 @@ export class ProductFormComponent implements OnInit {
       category: ['', Validators.required],
       thumbnail: [''],
       images: [['']],
+      tags: [['']],
     });
   }
 
