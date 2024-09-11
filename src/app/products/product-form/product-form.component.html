@@ -61,7 +61,8 @@
           <mat-select class="country-select" formControlName="category">
             @for (category of categories(); track category) {
             <mat-option [value]="category.slug">
-              <span>{{ category.name }}</span>
+              @let categoryName = category.name;
+              <span>{{ categoryName }}</span>
             </mat-option>
             }
           </mat-select>

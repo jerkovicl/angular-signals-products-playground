@@ -1,4 +1,8 @@
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import {
   ApplicationConfig,
   ErrorHandler,
@@ -40,7 +44,10 @@ export const appConfig: ApplicationConfig = {
         useClass: ErrorHandlerService,
       },
     ]),
-    provideHttpClient(withInterceptors([AuthInterceptor, ErrorInterceptor])),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([AuthInterceptor, ErrorInterceptor])
+    ),
     provideClientHydration(withEventReplay()),
   ],
 };

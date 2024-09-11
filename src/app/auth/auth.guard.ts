@@ -4,9 +4,9 @@ import {
   CanActivateFn,
   Router,
   RouterStateSnapshot,
-  UrlTree,
+  type GuardResult,
+  type MaybeAsync,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 /**
@@ -14,13 +14,25 @@ import { AuthService } from './auth.service';
  * @usageNotes  { path: 'products', component: ProductsListComponent, canActivate: [AuthGuard]},
  * @param _route
  * @param _state
- * @returns boolean | Observable<boolean> | UrlTree
+ * @returns MaybeAsync<GuardResult>
  */
 export const AuthGuard: CanActivateFn = (
   _route: ActivatedRouteSnapshot,
   _state: RouterStateSnapshot
-): boolean | Observable<boolean> | UrlTree => {
+): MaybeAsync<GuardResult> => {
   const authService = inject(AuthService);
   const router = inject(Router);
   return authService.isLoggedIn() ? true : router.parseUrl('/login');
+  /*
+  if (!authService.isLoggedIn()) {
+    const targetOfCurrentNavigation: UrlTree | undefined =
+      router.getCurrentNavigation()?.finalUrl;
+    const redirect: UrlTree = router.parseUrl('/login');
+    // Redirect to /login or /401 internally but display the original URL in the browser's address bar
+    return new RedirectCommand(redirect, {
+      browserUrl: targetOfCurrentNavigation,
+    });
+  }
+  return true;
+  */
 };
