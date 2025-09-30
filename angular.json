@@ -1,8 +1,9 @@
 {
-  "version": 1,
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "schematicCollections": ["@angular-eslint/schematics"]
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -34,12 +35,16 @@
           },
           "defaultConfiguration": "production",
           "options": {
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "browser": "src/main.ts",
             "index": "src/index.html",
             "inlineStyleLanguage": "scss",
             "outputPath": "dist/products-demo/browser",
             "prerender": true,
+            "scripts": [],
             "server": "src/main.server.ts",
             "ssr": {
               "entry": "server.ts"
@@ -48,20 +53,13 @@
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "tsConfig": "tsconfig.app.json",
-            "scripts": []
+            "tsConfig": "tsconfig.app.json"
           }
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
             "buildTarget": "products-demo:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         },
         "serve": {
@@ -80,8 +78,17 @@
           "builder": "@angular-builders/jest:run",
           "options": {
             "configPath": "./jest.config.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "scripts": []
+            "scripts": [],
+            "tsConfig": "tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       },
@@ -103,9 +110,6 @@
     "@schematics/angular:directive": {
       "type": "directive"
     },
-    "@schematics/angular:service": {
-      "type": "service"
-    },
     "@schematics/angular:guard": {
       "typeSeparator": "."
     },
@@ -120,6 +124,10 @@
     },
     "@schematics/angular:resolver": {
       "typeSeparator": "."
+    },
+    "@schematics/angular:service": {
+      "type": "service"
     }
-  }
+  },
+  "version": 1
 }
