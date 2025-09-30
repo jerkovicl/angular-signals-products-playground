@@ -8,6 +8,8 @@
     <app-product-item [product]="product"></app-product-item>
   </div>
   <mat-divider></mat-divider>
+  } @empty {
+  <span>The collection is empty</span>
   }
 </div>
 } @loading() {

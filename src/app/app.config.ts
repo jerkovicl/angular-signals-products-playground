@@ -12,6 +12,7 @@ import {
 import {
   provideClientHydration,
   withEventReplay,
+  withI18nSupport,
 } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
@@ -48,6 +49,6 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([AuthInterceptor, ErrorInterceptor])
     ),
-    provideClientHydration(withEventReplay()),
+    provideClientHydration(withEventReplay(), withI18nSupport()),
   ],
 };
