@@ -6,26 +6,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
 
 @Component({
-    selector: 'app-root',
-    imports: [
-        RouterOutlet,
-        RouterLink,
-        RouterLinkActive,
-        MatIconModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatListModule,
-        MatButtonModule,
-        AsyncPipe,
-    ],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatButtonModule,
+    AsyncPipe,
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   private breakpointObserver: BreakpointObserver = inject(BreakpointObserver);
@@ -38,7 +37,7 @@ export class AppComponent {
     .observe(Breakpoints.Handset)
     .pipe(
       map((result) => result.matches),
-      shareReplay()
+      shareReplay(),
     );
 
   logout(event: MouseEvent): void {

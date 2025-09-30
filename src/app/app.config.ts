@@ -7,7 +7,7 @@ import {
   ApplicationConfig,
   ErrorHandler,
   makeEnvironmentProviders,
-  provideExperimentalZonelessChangeDetection,
+  provideZonelessChangeDetection,
 } from '@angular/core';
 import {
   provideClientHydration,
@@ -34,10 +34,10 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
       withEnabledBlockingInitialNavigation(),
       withComponentInputBinding(),
-      withRouterConfig({ paramsInheritanceStrategy: 'always' })
+      withRouterConfig({ paramsInheritanceStrategy: 'always' }),
     ),
     provideAnimationsAsync(),
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     // provideZoneChangeDetection({ eventCoalescing: true, runCoalescing: true }),
     makeEnvironmentProviders([
       {
@@ -47,7 +47,7 @@ export const appConfig: ApplicationConfig = {
     ]),
     provideHttpClient(
       withFetch(),
-      withInterceptors([AuthInterceptor, ErrorInterceptor])
+      withInterceptors([AuthInterceptor, ErrorInterceptor]),
     ),
     provideClientHydration(withEventReplay(), withI18nSupport()),
   ],
