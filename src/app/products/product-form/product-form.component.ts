@@ -36,23 +36,22 @@ import { Product, ProductForm, type Category } from '../product.model';
 import { ProductsService } from '../products.service';
 
 @Component({
-  selector: 'app-product-form',
-  standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    MatCardModule,
-    MatRippleModule,
-    MatButtonModule,
-    MatDividerModule,
-  ],
-  templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-product-form',
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
+        MatCardModule,
+        MatRippleModule,
+        MatButtonModule,
+        MatDividerModule,
+    ],
+    templateUrl: './product-form.component.html',
+    styleUrl: './product-form.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductFormComponent implements OnInit {
   public productForm!: FormGroup<ProductForm>;

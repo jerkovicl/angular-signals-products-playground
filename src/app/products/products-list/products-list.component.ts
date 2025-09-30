@@ -14,18 +14,17 @@ import { Product } from '../product.model';
 import { ProductsService } from '../products.service';
 
 @Component({
-  selector: 'app-products-list',
-  standalone: true,
-  imports: [
-    RouterLink,
-    MatDividerModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
-    ProductItemComponent,
-  ],
-  templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-products-list',
+    imports: [
+        RouterLink,
+        MatDividerModule,
+        MatButtonModule,
+        MatProgressSpinnerModule,
+        ProductItemComponent,
+    ],
+    templateUrl: './products-list.component.html',
+    styleUrl: './products-list.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsListComponent {
   private readonly productsService: ProductsService = inject(ProductsService);

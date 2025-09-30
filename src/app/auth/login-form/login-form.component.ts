@@ -22,19 +22,18 @@ import { LoginForm, User, UserLogin } from '../auth.model';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-login-form',
-  standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-  ],
-  templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-login-form',
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+    ],
+    templateUrl: './login-form.component.html',
+    styleUrl: './login-form.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginFormComponent implements OnInit {
   public loginForm!: FormGroup<LoginForm>;

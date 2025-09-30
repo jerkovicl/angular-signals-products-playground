@@ -14,20 +14,19 @@ import { RouterLink } from '@angular/router';
 import { Product } from '../product.model';
 
 @Component({
-  selector: 'app-product-item',
-  standalone: true,
-  imports: [
-    RouterLink,
-    NgOptimizedImage,
-    MatCardModule,
-    MatDividerModule,
-    MatRippleModule,
-    MatIconModule,
-    MatChipsModule,
-  ],
-  templateUrl: './product-item.component.html',
-  styleUrl: './product-item.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-product-item',
+    imports: [
+        RouterLink,
+        NgOptimizedImage,
+        MatCardModule,
+        MatDividerModule,
+        MatRippleModule,
+        MatIconModule,
+        MatChipsModule,
+    ],
+    templateUrl: './product-item.component.html',
+    styleUrl: './product-item.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductItemComponent {
   product: InputSignal<Product> = input.required<Product>();
