@@ -1,16 +1,18 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { ErrorInterceptor } from './shared/error.interceptor';
+import { ErrorInterceptor } from './shared/errors/error.interceptor';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
       providers: [
+        provideZonelessChangeDetection(),
         provideHttpClient(
-          withInterceptors([AuthInterceptor, ErrorInterceptor])
+          withInterceptors([AuthInterceptor, ErrorInterceptor]),
         ),
       ],
     }).compileComponents();

@@ -1,8 +1,8 @@
 import { FormControl } from '@angular/forms';
 
-// login info for test:
-// username: "atuny0",
-// password: "9uQFF1Lh",
+// login info for test use from https://dummyjson.com/users:
+// username: "emilys",
+// password: "emilyspass",
 
 export interface UserLogin {
   username: string;

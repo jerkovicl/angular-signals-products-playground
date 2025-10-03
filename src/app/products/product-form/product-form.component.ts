@@ -31,27 +31,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { Observable, of, switchMap, tap } from 'rxjs';
-import { NotificationService } from '../../shared/notifications.service';
+import { NotificationService } from '../../shared/errors/notifications.service';
 import { Product, ProductForm, type Category } from '../product.model';
 import { ProductsService } from '../products.service';
 
 @Component({
-    selector: 'app-product-form',
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatIconModule,
-        MatCardModule,
-        MatRippleModule,
-        MatButtonModule,
-        MatDividerModule,
-    ],
-    templateUrl: './product-form.component.html',
-    styleUrl: './product-form.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-product-form',
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    MatCardModule,
+    MatRippleModule,
+    MatButtonModule,
+    MatDividerModule,
+  ],
+  templateUrl: './product-form.component.html',
+  styleUrl: './product-form.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductFormComponent implements OnInit {
   public productForm!: FormGroup<ProductForm>;
@@ -83,9 +83,9 @@ export class ProductFormComponent implements OnInit {
                   // console.log('product', res, this.productForm);
                   this.productForm.patchValue(res);
                 }
-              })
+              }),
             );
-      })
+      }),
     ),
     {
       initialValue: undefined,
@@ -93,10 +93,10 @@ export class ProductFormComponent implements OnInit {
       // requireSync: true,
       // propagate an error from its related observable to the signal
       // rejectErrors: false,
-    }
+    },
   );
   categories: Signal<Category[] | undefined> = toSignal(
-    this.productsService.getCategories()
+    this.productsService.getCategories(),
   );
 
   ngOnInit(): void {
@@ -141,11 +141,11 @@ export class ProductFormComponent implements OnInit {
           next: (product: Product) =>
             this.notificationService.showInfo(
               `Product added successfully`,
-              4000
+              4000,
             ),
           error: () =>
             this.notificationService.showClientError(
-              'There was an error adding the product'
+              'There was an error adding the product',
             ),
           complete: () => {
             this.router.navigateByUrl('/products');
@@ -159,11 +159,11 @@ export class ProductFormComponent implements OnInit {
           next: (product: Product) =>
             this.notificationService.showInfo(
               `Product updated successfully`,
-              4000
+              4000,
             ),
           error: () =>
             this.notificationService.showClientError(
-              'There was an error updating the product'
+              'There was an error updating the product',
             ),
           complete: () => {
             this.router.navigateByUrl('/products');

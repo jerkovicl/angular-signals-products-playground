@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   HttpHandlerFn,
   HttpHeaderResponse,
@@ -13,7 +14,7 @@ import { catchError } from 'rxjs/operators';
 
 export const ErrorInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
-  next: HttpHandlerFn
+  next: HttpHandlerFn,
 ): Observable<
   | HttpSentEvent
   | HttpHeaderResponse
@@ -24,6 +25,6 @@ export const ErrorInterceptor: HttpInterceptorFn = (
   return next(req).pipe(
     catchError((error: unknown) => {
       return throwError(() => error);
-    })
+    }),
   );
 };
