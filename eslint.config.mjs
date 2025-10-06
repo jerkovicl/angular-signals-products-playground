@@ -1,9 +1,25 @@
 // @ts-check
-const eslint = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const angular = require("angular-eslint");
 
-module.exports = tseslint.config(
+/**
+ * @fileoverview ESLint configuration file.
+ * @author Luka Jerkovic
+ */
+
+//-----------------------------------------------------------------------------
+// Imports
+//-----------------------------------------------------------------------------
+
+import { defineConfig } from "eslint/config";
+// @ts-ignore
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+import angular from "angular-eslint";
+
+//-----------------------------------------------------------------------------
+// Configuration
+//-----------------------------------------------------------------------------
+
+export default defineConfig([
   {
     files: ["**/*.ts"],
     extends: [
@@ -34,10 +50,11 @@ module.exports = tseslint.config(
   },
   {
     files: ["**/*.html"],
+    // @ts-ignore
     extends: [
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
     rules: {},
-  }
-);
+  },
+]);
